@@ -109,6 +109,27 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
         
+        // Validate Delivery Time
+        const deliveryTime = document.getElementById('delivery-time');
+        if (deliveryTime.value === '') {
+            showError(deliveryTime, 'Please select a delivery time window');
+            isValid = false;
+        }
+        
+        // Validate Payment Status
+        const paymentStatus = document.querySelector('input[name="payment_status"]:checked');
+        if (!paymentStatus) {
+            // Find the radio group container and show error there
+            const radioGroup = document.querySelector('.radio-group');
+            if (radioGroup) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = 'Please select a payment status';
+                radioGroup.appendChild(errorDiv);
+            }
+            isValid = false;
+        }
+        
         // If form is valid, submit it to Netlify
         if (isValid) {
             const formData = new FormData(form);

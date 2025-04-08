@@ -240,6 +240,55 @@
                                 </div>
                             </div>
                             
+                            <h3 class="form-section-title">Marketplace Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="marketplace-link">Marketplace Link (optional)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-facebook"></i>
+                                        <input type="url" id="marketplace-link" name="marketplace_link" placeholder="Paste the Facebook listing URL so we can coordinate if needed">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="delivery-time">Preferred Delivery Time Window</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <select id="delivery-time" name="delivery_time" required>
+                                            <option value="">Select Time Window</option>
+                                            <option value="Today">Today</option>
+                                            <option value="Tomorrow">Tomorrow</option>
+                                            <option value="This week">This week</option>
+                                            <option value="Mornings">Mornings</option>
+                                            <option value="Afternoons">Afternoons</option>
+                                            <option value="Evenings">Evenings</option>
+                                            <option value="Custom">Custom (specify in notes)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="form-section-title">Payment Status</h3>
+                            <div class="form-group radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="paid" name="payment_status" value="already_paid" required>
+                                    <label for="paid"><i class="fas fa-check-circle"></i> I have already paid the seller</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="pay-upon-delivery" name="payment_status" value="pay_upon_delivery">
+                                    <label for="pay-upon-delivery"><i class="fas fa-money-bill"></i> I will pay the seller upon delivery</label>
+                                </div>
+                                <p class="form-note"><i class="fas fa-exclamation-triangle"></i> This protects you from weirdness and keeps things transparent. You're not handling money, but you're informed.</p>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="driver-notes">Notes for Driver (optional)</label>
+                                <div class="input-with-icon textarea">
+                                    <i class="fas fa-comment-alt"></i>
+                                    <textarea id="driver-notes" name="driver_notes" placeholder="Examples: &#34;Seller is my cousin, just knock and grab it&#34;, &#34;Item is behind garage, already paid&#34;, &#34;Don't ring doorbell, baby sleeping&#34;"></textarea>
+                                </div>
+                            </div>
+                            
                             <h3 class="form-section-title">Additional Services</h3>
                             <div class="options-grid">
                                 <div class="form-group checkbox">

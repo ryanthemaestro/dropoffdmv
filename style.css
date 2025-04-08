@@ -882,6 +882,51 @@ textarea {
     cursor: pointer;
 }
 
+/* Radio button styles */
+.radio-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.radio-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: var(--spacing-sm);
+    accent-color: var(--primary-color);
+}
+
+.radio-option label {
+    margin-bottom: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.radio-option label i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.form-note {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--primary-color);
+}
+
+.form-note i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
 .submit-button {
     margin-top: var(--spacing-md);
     padding: 16px 32px;
