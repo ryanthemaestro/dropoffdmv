@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Dropoff DMV</title>
+    <link rel="icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>Dropoff</span><span style="color: var(--primary-color);">DMV</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="index.html#quote-form" class="nav-cta-button">Get a Quote</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Section -->
+    <section id="thank-you" style="min-height: 70vh; display: flex; align-items: center;">
+        <div class="container">
+            <div class="thank-you-content" data-aos="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1.5rem;"></i>
+                <h1>Thank You!</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Your quote request has been received. We'll get back to you shortly with pricing and availability.</p>
+                <div class="cta-group">
+                    <a href="index.html" class="cta-button">Return to Homepage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="logo">
+                        <a href="index.html">
+                            <span>Dropoff</span><span style="color: var(--primary-light);">DMV</span>
+                        </a>
+                    </div>
+                    <p class="about-short">Local delivery service for your Marketplace purchases in Columbia, MD and surrounding areas.</p>
+                </div>
+                <div class="footer-links-container">
+                    <div class="footer-links">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#pricing">Pricing</a></li>
+                            <li><a href="index.html#quote-form">Get a Quote</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:hello@dropoffdmv.com">hello@dropoffdmv.com</a></li>
+                            <li><a href="tel:+14435551234">(443) 555-1234</a></li>
+                            <li><a href="index.html#contact">Contact Form</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dropoff DMV. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dropoff DMV - Marketplace Pickup & Delivery in Columbia, MD</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Dropoff<span>DMV</span></div>
+            <div class="logo">
+                <a href="#home">
+                    <span>Dropoff</span><span style="color: var(--primary-color);">DMV</span>
+                </a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
@@ -39,16 +44,13 @@
     <!-- Header Section -->
     <header id="home">
         <div class="container">
-            <div class="hero-content" data-aos="fade-right" data-aos-delay="100">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
                 <h1>Bought it online. <span>We'll bring it home.</span></h1>
                 <p>Columbia MD's fast, local delivery for Marketplace finds</p>
                 <div class="cta-group">
                     <a href="#quote-form" class="cta-button">Get a Quote</a>
                     <a href="#how-it-works" class="secondary-button">Learn More</a>
                 </div>
-            </div>
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Delivery illustration" class="hero-img">
             </div>
         </div>
     </header>
@@ -178,7 +180,11 @@
                     </div>
                     
                     <div class="form-right">
-                        <form id="delivery-form">
+                        <form id="delivery-form" name="quote-request" method="POST" netlify action="/thanks.html">
+                            <input type="hidden" name="form-name" value="quote-request" />
+                            <div hidden>
+                                <input name="bot-field" />
+                            </div>
                             <h3 class="form-section-title">Get an Instant Price Estimate</h3>
                             <div class="form-grid">
                                 <div class="form-group">
@@ -254,6 +260,7 @@
                                 </div>
                             </div>
                             
+                            <!-- Netlify will send form submissions to your Netlify dashboard -->
                             <button type="submit" class="submit-button">Get Your Quote <i class="fas fa-arrow-right"></i></button>
                             <p class="form-disclaimer">By submitting this form, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
                         </form>
