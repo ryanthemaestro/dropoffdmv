@@ -11,8 +11,11 @@
     <p>This is a simple test form that will help us verify Netlify form handling is working correctly.</p>
     
     <!-- Netlify Form -->
-    <form name="test-form" method="POST" data-netlify="true">
+    <form name="test-form" method="POST" action="/thanks.html" netlify netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="test-form" />
+        <div hidden>
+            <input name="bot-field" />
+        </div>
         
         <p>
             <label>Name: <input type="text" name="name" required /></label>

@@ -109,42 +109,26 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
         
-        // If form is valid, submit it
+        // If form is valid, submit it to Netlify
         if (isValid) {
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
-            alert('Thank you! Your quote request has been submitted. We will contact you shortly.');
-            form.reset();
+            const formData = new FormData(form);
             
-            // In a real application, you would use something like:
-            /*
-            fetch('your-api-endpoint', {
+            fetch('/', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name.value,
-                    phone: phone.value,
-                    pickupAddress: pickupAddress.value,
-                    dropoffAddress: dropoffAddress.value,
-                    itemDescription: itemDescription.value,
-                    size: size.value,
-                    stairs: document.getElementById('stairs').checked,
-                    rush: document.getElementById('rush').checked
-                })
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('Thank you! Your quote request has been submitted. We will contact you shortly.');
-                form.reset();
+            .then(() => {
+                // Redirect to thanks page after successful submission
+                window.location.href = '/thanks.html';
             })
             .catch((error) => {
-                console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again later.');
+                console.error('Form submission error:', error);
+                alert('There was an error submitting your form. Please try again.');
             });
-            */
+            
+            // Prevent the default form submission
+            return false;
         }
     }
     
