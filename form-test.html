@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test</title>
+</head>
+<body>
+    <h1>Form Test Page</h1>
+    <p>This is a simple test form that will help us verify Netlify form handling is working correctly.</p>
+    
+    <!-- Netlify Form -->
+    <form name="test-form" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="test-form" />
+        
+        <p>
+            <label>Name: <input type="text" name="name" required /></label>
+        </p>
+        <p>
+            <label>Email: <input type="email" name="email" required /></label>
+        </p>
+        <p>
+            <button type="submit">Submit Test Form</button>
+        </p>
+    </form>
+    
+    <p><a href="index.html">Back to main site</a></p>
+</body>
+</html>
