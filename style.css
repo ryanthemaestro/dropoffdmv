@@ -2,6 +2,7 @@
 :root {
     /* Clean, professional color palette */
     --primary-color: #0066cc; /* Primary blue */
+    --primary-rgb: 0, 102, 204; /* RGB values of primary color for opacity */
     --primary-dark: #004d99; /* Darker blue */
     --primary-light: #f0f7ff; /* Light blue background */
     --secondary-color: #0a2540; /* Navy */
@@ -947,6 +948,7 @@ textarea {
     color: white;
     padding: var(--spacing-xl) 0;
     text-align: center;
+    margin-top: 80px; /* Add space for the fixed navbar */
 }
 
 .page-header h1 {
@@ -1048,19 +1050,53 @@ textarea {
 .mission-section, 
 .why-choose-section, 
 .team-section {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xxl) 0;
+}
+
+.about-section {
+    background-color: white;
 }
 
 .about-container, 
 .mission-container {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-xxl);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about-content, 
 .mission-content {
     flex: 1;
+}
+
+.about-content h2, 
+.mission-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.about-content h2:after, 
+.mission-content h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.about-content p, 
+.mission-content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-size: 1.05rem;
 }
 
 .about-image, 
@@ -1069,6 +1105,20 @@ textarea {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.about-image:before, 
+.mission-image:before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    z-index: -1;
 }
 
 .about-image img, 
@@ -1080,6 +1130,39 @@ textarea {
 
 .mission-section {
     background-color: var(--background-alt);
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(var(--primary-rgb), 0.05);
+    border-radius: 50%;
+    transform: translate(100px, -150px);
+    z-index: 0;
+}
+
+.mission-section:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(var(--primary-rgb), 0.05);
+    border-radius: 50%;
+    transform: translate(-100px, 100px);
+    z-index: 0;
+}
+
+.mission-container {
+    position: relative;
+    z-index: 1;
 }
 
 .mission-values {
@@ -1091,40 +1174,118 @@ textarea {
 
 .mission-value {
     text-align: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-value:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
 }
 
 .mission-value i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
 }
 
 .mission-value h3 {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.team-section {
+    background-color: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+}
+
+.section-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-member {
     text-align: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    padding: var(--spacing-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow);
 }
 
 .team-photo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto var(--spacing-md);
     box-shadow: var(--box-shadow);
+    border: 5px solid white;
+    position: relative;
+    z-index: 1;
+}
+
+.team-photo:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    z-index: -1;
 }
 
 .team-photo img {
@@ -1133,40 +1294,85 @@ textarea {
     object-fit: cover;
 }
 
+.team-member h3 {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
 .team-role {
     color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    border-radius: 20px;
 }
 
 .team-bio {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
 }
 
 .about-cta {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xxl) 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-cta:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(255, 255, 255, 0.05)" d="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45 c22.2-13.1,51.1-9.5,69.6,8.8c18.4,18.4,24.2,53.3,5.7,80.2c-19.3,28.6-44.2,25.6-63.5,41.7c-14.2,11.9-9.9,27-16.6,41.2 C91.6,186.9,55.9,201.4,37.5,186z"></path></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 800px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-cta h2 {
-    margin-bottom: var(--spacing-sm);
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .about-cta p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 .about-cta .cta-button {
     background-color: white;
     color: var(--primary-color);
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-cta .cta-button:hover {
-    background-color: var(--background-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: white;
 }
 
 @media (max-width: 768px) {
