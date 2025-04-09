@@ -1353,12 +1353,15 @@ textarea {
     font-size: 2.2rem;
     margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .about-cta p {
     margin-bottom: var(--spacing-lg);
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 1;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .about-cta .cta-button {
