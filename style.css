@@ -2090,6 +2090,26 @@ footer::before {
     transform: translateX(3px);
 }
 
+/* Page Header */
+.page-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 120px 0 60px;
+    position: relative;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Page Banner */
 .page-banner {
     background-color: var(--secondary-color);
