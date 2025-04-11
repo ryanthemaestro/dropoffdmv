@@ -29,25 +29,81 @@
             padding: 2rem 0;
         }
         
-        .blog-post-content h2 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
+        .blog-post-header {
+            margin-bottom: 2rem;
         }
         
-        .blog-post-content p {
-            margin-bottom: 1.5rem;
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .blog-post-meta .date {
+            margin-right: 1rem;
+        }
+        
+        .blog-post-meta .author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-post-meta .author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .page-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 120px 0 60px;
+            position: relative;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-post-body {
             line-height: 1.8;
         }
         
-        .blog-post-content ul, .blog-post-content ol {
+        .blog-post-body h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .blog-post-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-post-body ul, .blog-post-body ol {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
         }
         
-        .blog-post-content li {
+        .blog-post-body li {
             margin-bottom: 0.5rem;
-            line-height: 1.6;
         }
         
         .blog-post-content img {
@@ -57,17 +113,16 @@
             margin: 1.5rem 0;
         }
         
-        .blog-post-content .tip-box {
+        .tips-section {
             background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
             padding: 1.5rem;
+            border-radius: 8px;
             margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
         }
         
-        .blog-post-content .tip-box h3 {
-            margin-top: 0;
-            color: #4CAF50;
+        .tips-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
         
         .blog-post-header {
@@ -218,15 +273,32 @@
         </div>
     </nav>
     
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>How to Properly Prepare Large Items for Transport</h1>
+            <p>Learn essential techniques for safely preparing large furniture and bulky items for transportation</p>
+        </div>
+    </header>
+
     <!-- Blog Post Content -->
-    <div class="page-container">
-        <div class="blog-post-content">
-            <div class="blog-post-header">
-                <span class="blog-date">April 15, 2025</span>
-                <h1>How to Properly Prepare Large Items for Transport</h1>
-            </div>
-            
-            <p>Moving large furniture and bulky items can be a daunting task, especially if you're not experienced with proper packing and preparation techniques. Whether you're using a professional delivery service like Dropoff DMV or transporting items yourself, proper preparation is crucial to prevent damage and ensure a smooth delivery process. In this guide, we'll walk you through essential steps to prepare large items for safe transport.</p>
+    <section class="blog-post-section">
+        <div class="container">
+            <div class="blog-post-content">
+                <div class="blog-post-header">
+                    <div class="blog-post-meta">
+                        <span class="date"><i class="far fa-calendar-alt"></i> April 15, 2025</span>
+                        <span class="author">
+                            <img src="../assets/images/stoverheadshot.jpeg" alt="Ryan Stover">
+                            <span>Ryan Stover</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <img src="../assets/images/deliverytruckincolumbia.png" alt="Preparing large items for transport" class="featured-image">
+                
+                <div class="blog-post-body">
+                    <p>Moving large furniture and bulky items can be a daunting task, especially if you're not experienced with proper packing and preparation techniques. Whether you're using a professional delivery service like Dropoff DMV or transporting items yourself, proper preparation is crucial to prevent damage and ensure a smooth delivery process. In this guide, we'll walk you through essential steps to prepare large items for safe transport.</p>
             
             <h2>1. Measure Everything Twice</h2>
             <p>Before moving day arrives, take detailed measurements of both your large items and the spaces they need to navigate through:</p>
@@ -237,7 +309,7 @@
             </ul>
             <p>Having these measurements on hand will help you plan the best route for moving your items and determine if any pieces need to be disassembled before transport.</p>
             
-            <div class="tip-box">
+            <div class="tips-section">
                 <h3>Pro Tip: Create a Moving Map</h3>
                 <p>Sketch a simple floor plan of both your current and destination locations, marking the dimensions of doorways, hallways, and tight corners. This "moving map" can help you identify potential obstacles before they become problems.</p>
             </div>
@@ -278,7 +350,7 @@
                 <li>Secure adjustable parts (like recliner mechanisms) with zip ties or stretch wrap</li>
             </ul>
             
-            <div class="tip-box">
+            <div class="tips-section">
                 <h3>Pro Tip: The Blanket Wrap Method</h3>
                 <p>For delicate items with multiple components, try the "blanket wrap method": Place a furniture blanket flat on the floor, position your item in the center, then fold the blanket around it like you're wrapping a gift. Secure with stretch wrap or tape. This provides excellent all-around protection.</p>
             </div>
@@ -328,7 +400,7 @@
             <p>By combining your careful preparation with our professional delivery service, you can ensure your valuable items arrive safely at their destination. Contact us today for a quote on your next large item delivery!</p>
             
             <div class="author-info">
-                <img src="../images/stoverheadshot.jpeg" alt="Ryan Stover">
+                <img src="../assets/images/stoverheadshot.jpeg" alt="Ryan Stover">
                 <div>
                     <p class="author-name">Ryan Stover</p>
                     <p class="author-title">Founder, Dropoff DMV</p>
@@ -337,7 +409,7 @@
             
             <div class="share-section">
                 <h3>Share This Article</h3>
-                <div class="share-buttons">
+                <div class="social-share">
                     <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -356,10 +428,26 @@
                         <span class="date">March 25, 2025</span>
                         <h4>Best Places to Find Quality Used Furniture in the DMV Area</h4>
                     </a>
+                    <a href="5-tips-for-smooth-facebook-marketplace-pickup.html" class="related-post">
+                        <span class="date">April 9, 2025</span>
+                        <h4>5 Tips for a Smooth Facebook Marketplace Pickup Experience</h4>
+                    </a>
                 </div>
+
             </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Need help with your next large item delivery?</h2>
+                <p>Let us handle the pickup and delivery for you.</p>
+                <a href="../index.html#quote-form" class="cta-button">Get a Quote Today</a>
+            </div>
+        </div>
+    </section>
     
     <!-- Footer -->
     <footer>
