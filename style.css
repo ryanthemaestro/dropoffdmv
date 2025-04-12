@@ -553,6 +553,15 @@ header .container {
     padding: 0;
 }
 
+.pricing-note {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
 .add-on-list li {
     display: flex;
     justify-content: space-between;
