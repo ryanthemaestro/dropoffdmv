@@ -755,6 +755,7 @@ form {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 @media (max-width: 576px) {
@@ -765,6 +766,11 @@ form {
 
 .form-group {
     margin-bottom: var(--spacing-md);
+}
+
+/* Adjust spacing for form groups within a grid */
+.form-grid .form-group {
+    margin-bottom: var(--spacing-sm);
 }
 
 .form-group.full-width {
@@ -848,7 +854,7 @@ textarea {
 .form-section-title {
     font-size: 1.1rem;
     color: var(--secondary-color);
-    margin: var(--spacing-lg) 0 var(--spacing-md);
+    margin: var(--spacing-xl) 0 var(--spacing-sm);
     padding-bottom: var(--spacing-xs);
     border-bottom: 1px solid var(--border-color);
 }
@@ -857,7 +863,7 @@ textarea {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
 }
 
 @media (max-width: 576px) {
@@ -929,7 +935,7 @@ textarea {
 }
 
 .submit-button {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-lg);
     padding: 16px 32px;
     font-size: 1.1rem;
     width: 100%;
