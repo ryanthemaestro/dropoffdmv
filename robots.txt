@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /form-test.html
+Disallow: /test-image.html
+
+# Sitemap
+Sitemap: https://dropoffdmv.com/sitemap.xml
