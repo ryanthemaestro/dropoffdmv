@@ -5,3 +5,21 @@
 [build.environment]
   NODE_VERSION = "16"
 
+[[redirects]]
+  from = "http://www.dropoffdmv.com/*"
+  to = "https://dropoffdmv.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://dropoffdmv.com/*"
+  to = "https://dropoffdmv.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.dropoffdmv.com/*"
+  to = "https://dropoffdmv.com/:splat"
+  status = 301
+  force = true
+
