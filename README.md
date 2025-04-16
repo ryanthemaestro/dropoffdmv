@@ -1,6 +1,6 @@
 # Dropoff DMV Website
 
-A mobile-first, one-page website for Dropoff DMV, a local Facebook Marketplace delivery service based in Columbia, MD.
+A mobile-first, one-page website for Dropoff DMV, a local Facebook Marketplace delivery service based in Howard County, MD and the surrounding areas.
 
 ## Project Structure
 
