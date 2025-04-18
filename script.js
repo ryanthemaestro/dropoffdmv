@@ -1,5 +1,26 @@
 // Global for Google Autocomplete
 let pickupAutocomplete, deliveryAutocomplete;
+// Expose distanceInput and updateEstimate globally for autocomplete handlers
+let distanceInput, updateEstimate;
+
+// Global DistanceMatrix helper
+function calculateDistance(orig, dest, cb) {
+    if (!window.google || !google.maps) return cb(null);
+    const service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+        { origins: [orig], destinations: [dest], travelMode: 'DRIVING' },
+        (response, status) => {
+            if (status === 'OK') {
+                const meters = response.rows[0].elements[0].distance.value;
+                const miles = meters / 1609.34;
+                cb(miles);
+            } else {
+                console.error('DistanceMatrix error:', status);
+                cb(null);
+            }
+        }
+    );
+}
 
 // Initialize Google Places Autocomplete (called by callback)
 function initAutocomplete() {
@@ -8,10 +29,14 @@ function initAutocomplete() {
     if (pickupEl) {
         pickupAutocomplete = new google.maps.places.Autocomplete(pickupEl, { types: ['geocode'] });
         pickupAutocomplete.addListener('place_changed', handlePlaceChanged);
+        // Fallback: trigger on manual input change
+        pickupEl.addEventListener('change', handlePlaceChanged);
     }
     if (dropoffEl) {
         deliveryAutocomplete = new google.maps.places.Autocomplete(dropoffEl, { types: ['geocode'] });
         deliveryAutocomplete.addListener('place_changed', handlePlaceChanged);
+        // Fallback: trigger on manual input change
+        dropoffEl.addEventListener('change', handlePlaceChanged);
     }
 }
 
@@ -19,10 +44,15 @@ function initAutocomplete() {
 function handlePlaceChanged() {
     const orig = document.getElementById('pickup-address').value;
     const dest = document.getElementById('dropoff-address').value;
+    console.log('handlePlaceChanged:', orig, dest);
     if (orig && dest) {
         calculateDistance(orig, dest, function(miles) {
+            console.log('DistanceMatrix result:', miles);
             if (miles != null) {
                 distanceInput.value = miles.toFixed(1);
+                // Update distance display
+                const disp = document.getElementById('distance-display');
+                if (disp) disp.textContent = 'Distance: ' + miles.toFixed(1) + ' mi';
                 updateEstimate();
             }
         });
@@ -259,13 +289,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Price estimate calculation
     const sizeInput = document.getElementById('size');
-    const distanceInput = document.getElementById('distance');
+    distanceInput = document.getElementById('distance');
     const rushCheckbox = document.getElementById('rush');
     const stairsCheckbox = document.getElementById('stairs');
     const assemblyCheckbox = document.getElementById('assembly');
     const priceEstimateEl = document.getElementById('price-estimate');
 
-    function updateEstimate() {
+    updateEstimate = function() {
         let basePrice = 0;
         switch (sizeInput.value) {
             case 'small': basePrice = 25; break;
@@ -288,23 +318,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateEstimate();
 
-    // Calculate distance via Google Maps API before form submit
-    function calculateDistance(orig, dest, cb) {
-        if (!window.google || !google.maps) return cb(null);
-        const service = new google.maps.DistanceMatrixService();
-        service.getDistanceMatrix(
-            { origins: [orig], destinations: [dest], travelMode: 'DRIVING' },
-            (response, status) => {
-                if (status === 'OK') {
-                    const meters = response.rows[0].elements[0].distance.value;
-                    const miles = meters / 1609.34;
-                    cb(miles);
-                } else {
-                    console.error('DistanceMatrix error:', status);
-                    cb(null);
-                }
-            }
-        );
+    // After setting up form, initialize autocomplete now that updateEstimate is available
+    if (typeof initAutocomplete === 'function') {
+        initAutocomplete();
     }
 
     // Intercept form submission to auto-calculate distance
