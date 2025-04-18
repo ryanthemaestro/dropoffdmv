@@ -281,10 +281,32 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="distance">Distance (miles)</label>
-                                    <div class="input-with-icon" style="display: flex; align-items: center; gap: 8px; background: #f4f8ff; border-radius: 6px; padding: 6px 10px;">
-    <i class="fas fa-road" style="font-size: 1.2em; color: #1976d2;"></i>
-    <div id="distance-display" class="distance-display" style="font-weight: 500; color: #1976d2; font-size: 1.08em; margin-left: 6px;">Distance: 0 mi</div>
-    <input type="hidden" id="distance" name="distance" value="0">
+                                    <style>
+.distance-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 3px rgba(25, 118, 210, 0.05);
+  margin-bottom: 0;
+}
+.distance-row .fa-road {
+  font-size: 1.15em;
+  color: #1976d2;
+  margin-right: 10px;
+}
+.distance-row .distance-display {
+  font-weight: 500;
+  color: #1976d2;
+  font-size: 1.08em;
+}
+</style>
+<div class="distance-row">
+  <i class="fas fa-road"></i>
+  <span id="distance-display" class="distance-display">Distance: 0 mi</span>
+  <input type="hidden" id="distance" name="distance" value="0">
 </div>
                                 </div>
                             </div>
