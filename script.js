@@ -29,14 +29,12 @@ function initAutocomplete() {
     if (pickupEl) {
         pickupAutocomplete = new google.maps.places.Autocomplete(pickupEl, { types: ['geocode'] });
         pickupAutocomplete.addListener('place_changed', handlePlaceChanged);
-        // Fallback: trigger on manual input change
-        pickupEl.addEventListener('change', handlePlaceChanged);
+
     }
     if (dropoffEl) {
         deliveryAutocomplete = new google.maps.places.Autocomplete(dropoffEl, { types: ['geocode'] });
         deliveryAutocomplete.addListener('place_changed', handlePlaceChanged);
-        // Fallback: trigger on manual input change
-        dropoffEl.addEventListener('change', handlePlaceChanged);
+
     }
 }
 
