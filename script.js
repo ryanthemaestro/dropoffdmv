@@ -229,9 +229,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Price estimate calculation
     const sizeInput = document.getElementById('size');
     const distanceInput = document.getElementById('distance');
-    const rushCheckbox = document.getElementById('addon-rush');
-    const stairsCheckbox = document.getElementById('addon-stairs');
-    const assemblyCheckbox = document.getElementById('addon-assembly');
+    const rushCheckbox = document.getElementById('rush');
+    const stairsCheckbox = document.getElementById('stairs');
+    const assemblyCheckbox = document.getElementById('assembly');
     const priceEstimateEl = document.getElementById('price-estimate');
 
     function updateEstimate() {
