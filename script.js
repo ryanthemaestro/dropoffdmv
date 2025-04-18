@@ -155,12 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
         
-        // Validate Item Description
-        const itemDescription = document.getElementById('item-description');
-        if (itemDescription.value.trim() === '') {
-            showError(itemDescription, 'Item description is required');
-            isValid = false;
-        }
+        // Item Description is now optional; no validation needed
         
         // Validate Size
         const size = document.getElementById('size');
