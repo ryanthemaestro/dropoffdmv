@@ -256,4 +256,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateEstimate();
+
+    // Calculate distance via Google Maps API before form submit
+    function calculateDistance(orig, dest, cb) {
+        if (!window.google || !google.maps) return cb(null);
+        const service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+            { origins: [orig], destinations: [dest], travelMode: 'DRIVING' },
+            (response, status) => {
+                if (status === 'OK') {
+                    const meters = response.rows[0].elements[0].distance.value;
+                    const miles = meters / 1609.34;
+                    cb(miles);
+                } else {
+                    console.error('DistanceMatrix error:', status);
+                    cb(null);
+                }
+            }
+        );
+    }
+
+    // Intercept form submission to auto-calculate distance
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const orig = document.getElementById('pickup-address').value;
+            const dest = document.getElementById('dropoff-address').value;
+            calculateDistance(orig, dest, function(miles) {
+                if (miles != null) {
+                    distanceInput.value = miles.toFixed(1);
+                    updateEstimate();
+                }
+                form.submit();
+            });
+        });
+    }
+
 });
