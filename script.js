@@ -1,3 +1,34 @@
+// Global for Google Autocomplete
+let pickupAutocomplete, deliveryAutocomplete;
+
+// Initialize Google Places Autocomplete (called by callback)
+function initAutocomplete() {
+    const pickupEl = document.getElementById('pickup-address');
+    const dropoffEl = document.getElementById('dropoff-address');
+    if (pickupEl) {
+        pickupAutocomplete = new google.maps.places.Autocomplete(pickupEl, { types: ['geocode'] });
+        pickupAutocomplete.addListener('place_changed', handlePlaceChanged);
+    }
+    if (dropoffEl) {
+        deliveryAutocomplete = new google.maps.places.Autocomplete(dropoffEl, { types: ['geocode'] });
+        deliveryAutocomplete.addListener('place_changed', handlePlaceChanged);
+    }
+}
+
+// When either place changes, recalc distance if both filled
+function handlePlaceChanged() {
+    const orig = document.getElementById('pickup-address').value;
+    const dest = document.getElementById('dropoff-address').value;
+    if (orig && dest) {
+        calculateDistance(orig, dest, function(miles) {
+            if (miles != null) {
+                distanceInput.value = miles.toFixed(1);
+                updateEstimate();
+            }
+        });
+    }
+}
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Get form element
