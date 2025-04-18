@@ -24,6 +24,7 @@ function calculateDistance(orig, dest, cb) {
 
 // Initialize Google Places Autocomplete (called by callback)
 function initAutocomplete() {
+    window.initAutocomplete = initAutocomplete; // Ensure global for Google Maps
     const pickupEl = document.getElementById('pickup-address');
     const dropoffEl = document.getElementById('dropoff-address');
     if (pickupEl) {
@@ -310,9 +311,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (priceEstimateEl) priceEstimateEl.textContent = 'Estimated Price: $' + price.toFixed(2);
     }
 
-    [sizeInput, distanceInput, rushCheckbox, stairsCheckbox, assemblyCheckbox].forEach(el => {
-        if (el) el.addEventListener('change', updateEstimate);
+    const inputsToWatch = [sizeInput, distanceInput, rushCheckbox, stairsCheckbox, assemblyCheckbox];
+if (inputsToWatch.every(Boolean)) {
+    inputsToWatch.forEach(el => {
+        el.addEventListener('change', updateEstimate);
     });
+}
 
     updateEstimate();
 
