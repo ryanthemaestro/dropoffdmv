@@ -225,4 +225,35 @@ document.addEventListener('DOMContentLoaded', function() {
             field.parentElement.classList.add('focused');
         }
     });
+    
+    // Price estimate calculation
+    const sizeInput = document.getElementById('size');
+    const distanceInput = document.getElementById('distance');
+    const rushCheckbox = document.getElementById('addon-rush');
+    const stairsCheckbox = document.getElementById('addon-stairs');
+    const assemblyCheckbox = document.getElementById('addon-assembly');
+    const priceEstimateEl = document.getElementById('price-estimate');
+
+    function updateEstimate() {
+        let basePrice = 0;
+        switch (sizeInput.value) {
+            case 'small': basePrice = 25; break;
+            case 'medium': basePrice = 40; break;
+            case 'large': basePrice = 60; break;
+            default: basePrice = 0;
+        }
+        let distance = parseFloat(distanceInput.value) || 0;
+        let extraMiles = Math.max(0, distance - 10);
+        let price = basePrice + extraMiles * 1;
+        if (rushCheckbox && rushCheckbox.checked) price += 15;
+        if (stairsCheckbox && stairsCheckbox.checked) price += 10;
+        if (assemblyCheckbox && assemblyCheckbox.checked) price += 25;
+        if (priceEstimateEl) priceEstimateEl.textContent = 'Estimated Price: $' + price.toFixed(2);
+    }
+
+    [sizeInput, distanceInput, rushCheckbox, stairsCheckbox, assemblyCheckbox].forEach(el => {
+        if (el) el.addEventListener('change', updateEstimate);
+    });
+
+    updateEstimate();
 });

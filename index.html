@@ -163,7 +163,9 @@
             
             <div class="pricing-simple" data-aos="fade-up">
                 <div class="pricing-main">
-                    <h3>Base Delivery Fee: <span class="price">$40</span></h3>
+                    <h3>Small Packages (up to 3 items): <span class="price">$25</span></h3>
+                    <p class="pricing-description">Includes pickup for up to 3 small packages (within 10 miles)</p>
+                    <h3>Standard Base Delivery Fee: <span class="price">$40</span></h3>
                     <p class="pricing-description">Includes pickup from seller and delivery to your location (within 10 miles)</p>
                     
                     <div class="add-ons">
@@ -272,6 +274,13 @@
                                         <input type="text" id="dropoff-address" name="dropoff_address" placeholder="Deliver to" required>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="distance">Distance (miles)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-road"></i>
+                                        <input type="number" id="distance" name="distance" placeholder="Miles" min="0" value="0" required>
+                                    </div>
+                                </div>
                             </div>
                             
                             <h3 class="form-section-title">Item Details</h3>
@@ -353,9 +362,18 @@
                                     <label for="disposal"><i class="fas fa-trash"></i> Disposal</label>
                                 </div>
                             </div>
-                            
-                            <!-- Netlify will send form submissions to your Netlify dashboard -->
-                            <button type="submit" class="submit-button">Get Your Quote <i class="fas fa-arrow-right"></i></button>
+                            <div class="form-group">
+                                <label>Add-ons</label>
+                                <div class="addons-list">
+                                    <label><input type="checkbox" id="addon-rush" name="addon_rush"> Rush Delivery (+$15)</label><br>
+                                    <label><input type="checkbox" id="addon-stairs" name="addon_stairs"> Stairs/Multi-level (+$10)</label><br>
+                                    <label><input type="checkbox" id="addon-assembly" name="addon_assembly"> Assembly Service (+$25)</label>
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <div id="price-estimate" class="price-estimate">Estimated Price: $0</div>
+                                <button type="submit" class="submit-button">Get Your Quote <i class="fas fa-arrow-right"></i></button>
+                            </div>
                             <p class="form-disclaimer">By submitting this form, you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. For your peace of mind: Our coverage includes up to $100 per item. If you’re shipping something especially valuable, we recommend considering additional insurance.</p>
                         </form>
                     </div>

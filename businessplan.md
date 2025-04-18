@@ -5,10 +5,10 @@
 ### Day 1–2: Set Up the Core
 
 - [x] Buy your domain (e.g., dropoffdmv.com)
-- [ ] Deploy a simple mobile-first site on Netlify
-  - [ ] Header, pricing, trust, “How it works” section, request form
-  - [ ] Form can go to your email or Airtable
-- [ ] Set up Stripe and/or Venmo for payment
+- [x] Deploy a simple mobile-first site on Netlify
+  - [x] Header, pricing, trust, “How it works” section, request form
+  - [x] Form can go to your email or Airtable
+- [x] Set up Stripe and/or Venmo for payment
 - [ ] Draft pricing tiers based on your decision tree
   - [ ] Write delivery policy:
     - [ ] Handling limits
